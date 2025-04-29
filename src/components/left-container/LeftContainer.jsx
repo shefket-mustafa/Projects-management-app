@@ -1,6 +1,9 @@
+import { useState } from 'react';
 import './leftContainer.css';
 
-export default function LeftContainer({ addHandler, projects }) {
+export default function LeftContainer({ addHandler, projects, projectHandler }) {
+  
+
   return (
       <>
       <div className="left-container">
@@ -11,9 +14,11 @@ export default function LeftContainer({ addHandler, projects }) {
       </div>
 
       <div className='projects'>
+        <ul>
         {projects.map(project => (
-          <li key={project} className='project-item'>{project.title}</li>
+          <li onClick={() =>projectHandler(project)} key={project.title} className='project-item'>{project.title}</li>
         ))}
+        </ul>
       </div>
 
       </div>
