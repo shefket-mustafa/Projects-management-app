@@ -31,8 +31,11 @@ function App() {
   };
 
   const addTask = (projectId, taskTitle) => {
-    setProjects(prevProjects => {
+    if(taskTitle === ''){
+      return;
+    };
 
+    setProjects(prevProjects => {
       const updated =  prevProjects.map(project => project.id === projectId ? {
       ...project,
       tasks:[
@@ -49,10 +52,41 @@ function App() {
 
     return updated
   });
+  };
+
+  const removeTask = (taskId) => {
+    setProjects(prevProjects => {
+      const updated = prevProjects.map(project => {
+        const filtered = project.tasks.filter(task => task.id !== taskId)
+      
+      return {
+        ...project,
+        tasks: filtered}
+    
+      });
+
+      const updatedCurrent = updated.find(project => project.id === currentProject.id);
+      if(updatedCurrent){
+        setCurrentProject(updatedCurrent)
+      };
+
+      return updated;
+    });
+}
+
+const deleteProject = (projectId) => {
+  setProjects(prevProjects => {
+    const filteredProjects = prevProjects.filter(project => project.id !== projectId);
+
+    if(currentProject.id === projectId){
+      setCurrentProject(null);
+    };
 
 
-  }
-
+    return filteredProjects;
+    
+  })
+}
   return (
     <>
     <div className="main-container">
@@ -67,7 +101,11 @@ function App() {
       {isAddProjClicked 
       ? (<AddProject addProject={addProjectHandler}/>) 
       : currentProject 
-      ? (<SavedProject project={currentProject} addTask={addTask}/>) 
+      ? (<SavedProject project={currentProject} 
+        addTask={addTask}
+        removeTask = {removeTask}
+        deleteProject = {deleteProject}
+        />) 
       : <Main addHandler={addProjHandler}
       />}
       
