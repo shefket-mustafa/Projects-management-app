@@ -36,6 +36,9 @@
     min-width: 60em;
     margin-left: 50px;
 }
+.lower-container button:hover {
+    cursor: pointer;
+}
 
 .tasks{
     display: flex;
