@@ -40,21 +40,55 @@
     cursor: pointer;
 }
 
-.tasks{
-    display: flex;
-}
-
-.tasks input {
+.tasks-container input{
     background-color: lightgray;
     border: none;
     min-height: 30px;
     min-width: 20rem;
     margin-right: 5px;
-    
 }
-.tasks button{
-    background-color: white;
+
+
+.tasks{
+    display: flex;
+    width: 95%;
+    margin-left: 50px;
+}
+
+.tasks ul {
+    width: 100%;
+    background-color: rgb(233, 230, 230);
+    padding-left: 40px;
+    padding-right: 40px;
+}
+.tasks-container button{
+    background-color: transparent;
     border: none;
     font-size: 20px;
     font-family: sans-serif;
+    margin-left: 15px;
+}
+
+.tasks button{
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    font-family: sans-serif;
+}
+
+.tasks li{
+    width: 100%;
+    font-family: sans-serif;
+    list-style: none;
+}
+.task-li{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.task-li button:hover{
+    cursor: pointer;
+}
+.upper-header button:hover {
+    cursor: pointer;
 }
