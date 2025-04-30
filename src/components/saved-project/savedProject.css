@@ -1,0 +1,57 @@
+.details-container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+}
+
+.upper-container{
+    min-width: 60em;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin-left: 50px;
+    padding-top: 110px;
+    font-family: sans-serif;
+    border-bottom: 2px solid lightgray;
+}
+
+.upper-container button {
+    padding: 6px 12px;
+    background-color: white;
+    border: none;
+    color: black;
+    font-size: 20px;
+    
+}
+.upper-header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.lower-container{
+    min-width: 60em;
+    margin-left: 50px;
+}
+
+.tasks{
+    display: flex;
+}
+
+.tasks input {
+    background-color: lightgray;
+    border: none;
+    min-height: 30px;
+    min-width: 20rem;
+    margin-right: 5px;
+    
+}
+.tasks button{
+    background-color: white;
+    border: none;
+    font-size: 20px;
+    font-family: sans-serif;
+}
