@@ -55,6 +55,9 @@ function App() {
   };
 
   const removeTask = (taskId) => {
+
+    const currentProjectId = currentProject?.id;
+
     setProjects(prevProjects => {
       const updated = prevProjects.map(project => {
         const filtered = project.tasks.filter(task => task.id !== taskId)
@@ -63,16 +66,17 @@ function App() {
         ...project,
         tasks: filtered}
     
-      });
+      
+    })
 
-      const updatedCurrent = updated.find(project => project.id === currentProject.id);
+      const updatedCurrent = updated.find(project => project.id === currentProjectId);
       if(updatedCurrent){
         setCurrentProject(updatedCurrent)
       };
 
       return updated;
-    });
-}
+      });
+    };
 
 const deleteProject = (projectId) => {
   setProjects(prevProjects => {
