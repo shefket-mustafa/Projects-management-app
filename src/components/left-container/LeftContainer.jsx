@@ -16,7 +16,7 @@ export default function LeftContainer({ addHandler, projects, projectHandler }) 
       <div className='projects'>
         <ul>
         {projects.map(project => (
-          <li onClick={() =>projectHandler(project)} key={project.title} className='project-item'>{project.title}</li>
+          <li onClick={() =>projectHandler(project)} key={project.id} className='project-item'>{project.title}</li>
         ))}
         </ul>
       </div>
