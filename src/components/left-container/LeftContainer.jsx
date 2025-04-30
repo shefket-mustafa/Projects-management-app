@@ -1,4 +1,4 @@
-import { useState } from 'react';
+
 import './leftContainer.css';
 
 export default function LeftContainer({ addHandler, projects, projectHandler }) {
