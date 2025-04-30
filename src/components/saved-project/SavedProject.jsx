@@ -1,13 +1,15 @@
+
 import { useState } from "react";
+import { v4 as uuid} from 'uuid';
 import "./savedProject.css";
 
-export default function SavedProject({ project }) {
-
-  const[savedTasks, setSavedTasks] = useState([]);
-
-  const addTaskHandler = (task) => {
-    setSavedTasks(prevTasks => [...prevTasks, task])
-  };
+export default function SavedProject({ project, addTask }) {
+  const [taskInput, setTaskInput] = useState('');
+ 
+  const taskInputHandler = (event) => {
+    setTaskInput(event.target.value);
+    console.log(event.target.value);
+  }
 
 
   return (
@@ -31,11 +33,19 @@ export default function SavedProject({ project }) {
         <div className="lower-container">
           <h1>Tasks</h1>
           <div className="tasks">
-            <input type="text" />
-            <button>Add Task</button>
+            <input type="text" onChange={taskInputHandler} value={taskInput}/>
+            <button onClick={()=>{
+              addTask(project.id,taskInput)
+              setTaskInput('');
+              }}>Add Task</button>
+
           </div>
 
-          <div className="tasks"></div>
+          <div className="tasks">
+            <ul>
+            {project.tasks.length > 0 ?  project.tasks.map(task => <li key={task.id}>{task.title}</li>) : <p style={{fontFamily:'sans-serif'}}>No Tasks Yet..</p>}
+            </ul>
+          </div>
         </div>
       </div>
     </>
